@@ -31,6 +31,9 @@ output() {
 
 installed python3 || die "Cannot run this action without Python"
 
+python3 -m pip --version >/dev/null 2>&1 \
+    || die "Cannot run this action without pip"
+
 [[ "${RUNNER_OS}" != "Linux" ]] && warn "Unsupported runner OS: ${RUNNER_OS}"
 
 output="${RUNNER_TEMP}/zizmor"
